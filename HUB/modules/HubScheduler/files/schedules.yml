@@ -1,0 +1,176 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Instance Scheduler Schedules
+Parameters:
+  ServiceInstanceScheduleServiceTokenARN:
+    Type: String
+    Description: (Required) service token arn taken from InstanceScheduler outputs
+Resources:
+  testukservicehours:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: Test UK Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '14:06'
+        EndTime: '14:11'
+        WeekDays: Mon-Fri
+  testukservicehours2:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: Test UK Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '13:15'
+        EndTime: '13:30'
+        WeekDays: Mon-Fri
+      - Description: Service hours at weekends
+        BeginTime: '13:15'
+        EndTime: '13:30'
+        WeekDays: Sat-Sun
+  testukservicehours3:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: Test UK Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Start time on weekdays
+        BeginTime: '13:15'
+        WeekDays: Mon-Fri
+  ec2ukweekdayservicehours:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 UK Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '08:00'
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  ec2ukweekdayservicehoursgloballogic:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 Global Logic Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '04:00'
+        EndTime: '19:30'
+        WeekDays: Mon-Fri
+  ec2ukweekdayservicehoursstoponly:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 UK Service Hours - Stop Only
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  ec2ukweekdayservicehoursstartonly:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 UK Service Hours - Start Only
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '08:00'
+        WeekDays: Mon-Fri
+  ec2deweekdayservicehours:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 DE Service Hours
+      Enforced: 'False'
+      Timezone: Europe/Berlin
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '08:00'
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  ec2247weekdayservicehours:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 247 Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '07:00'
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  ec2247weekdayservicehoursIndia:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 247 Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '03:00'
+        EndTime: '19:00'
+        WeekDays: Mon-Fri
+  ec2deweekdayservicehoursstoponly:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: EC2 DE Service Hours
+      Enforced: 'False'
+      Timezone: Europe/Berlin
+      Periods:
+      - Description: Service hours on weekdays
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  rdsukhealthassuredev:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: HealthAssure RDS Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '08:00'
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  rdsukhealthassuredevTest:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: HealthAssure RDS Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '08:00'
+        EndTime: '18:00'
+        WeekDays: Mon-Fri
+  iko:
+    Type: Custom::ServiceInstanceSchedule
+    Properties:
+      ServiceToken: ${ServiceInstanceScheduleServiceTokenARN} #do not edit this line
+      Description: HealthAssure RDS Service Hours
+      Enforced: 'False'
+      Timezone: Europe/London
+      Periods:
+      - Description: Service hours on weekdays
+        BeginTime: '07:50'
+        EndTime: '08:00'
+        WeekDays: Mon-Fri
